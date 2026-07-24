@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main>
@@ -11,29 +12,51 @@
     <input type="number" name="one" id="one" placeholder="Write the first number" >
     <label for="two"> Write the second number </label>
     <input type="number" name="two" id="two" placeholder="Write the second number" >
-    <input type="button" value="submit" onclick="greater()">
+    <button type="button" value="submit" onclick="greater()">
 
     <label for="lone"> Write the first number </label>
     <input type="number" name="lone" id="lone" placeholder="Write the first number">
     <label for="ltwo"> Write the second number </label>
     <input type="number" name="ltwo" id="ltwo" placeholder="Write the second number">
-    <input type="button" value="submit" onclick="lower()">
+    <button type="button" value="submit" onclick="lower()">
     <div id="lowernumber"></div>
 
     <label for="gone"> Write the first number </label>
     <input type="number" name="gone" id="gone" placeholder="Write the first number">
     <label for="gtwo"> Write the second number </label>
     <input type="number" name="gtwo" id="gtwo" placeholder="Write the second number">
-    <input type="button" value="submit" onclick="greaterorequal()">
+    <button type="button" value="submit" onclick="greaterorequal()">
     <div id="numbergreaterorequal"></div>
 
-    <label for="pnone"> Write the first number </label>
-    <input type="number" name="pnone" id="pnone" placeholder="Write the first number">
-    <label for="pntwo"> Write the second number </label>
-    <input type="number" name="pntwo" id="pntwo" placeholder="Write the second number">
-    <input type="button" value="submit" onclick="numbergreaterthanzero()">
-    <div id="numberpositiveornegative"></div>
+    <form id="number-checker-form">
+      <div class="form-group">
+        <label for="first-number">First Number</label>
+        <input type="number" id="first-number" name="first-number" placeholder="Enter the first number" step="any">
+      </div>
+
+      <div class="form-group">
+        <label for="second-number">Second Number</label>
+        <input type="number" id="second-number" name="second-number" placeholder="Enter the second number" step="any">
+      </div>
+
+      <button type="button" id="check-button" onclick="checkNumbers()">Check Numbers</button>
+    </form>
+
+    <div id="result-display"></div>
   </main>
   <script src="main.js"></script>
+
+
+
+
+
+
+    <script>
+
+    </script>
+
+  </body>
+
+  </html>
 </body>
 </html>

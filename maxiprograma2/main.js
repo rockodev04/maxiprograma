@@ -64,33 +64,48 @@ function greaterorequal() {
   }
 }
 
-function numbergreaterthanzero() {
-  let one = Number(document.getElementById('pnone').value)
-  let two = Number(document.getElementById('pntwo').value)
-  let numberpositiveornegative = document.getElementById('numberpositiveornegative')
-  let zero = 0
-  let result = ''
+// ============================================
+// CODE STYLE: UNCLE BOB
+// ============================================
 
-  if (one > zero) {
-    result += `The number ${one} is positive<br>`
-  }
 
-  if (two > zero) {
-    result += `The number ${two} is positive<br>`
-  }
-
-  if (one < zero) {
-    result += `The number ${one} is negative<br>`
-  }
-
-  if (two < zero) {
-    result += `The number ${two} is negative<br>`
-  }
-
-  if (one == zero && two == zero) {
-    result += `Both number are zero<br>`
-  }
-
-  numberpositiveornegative.innerHTML = result
+function determineSign(number) {
+  if (number > 0) return 'positive';
+  if (number < 0) return 'negative';
+  return 'zero';
 }
 
+function formatResultMessage(number, sign) {
+  const cssClass = sign; 
+  const article = sign === 'zero' ? 'is' : 'is';
+  return `<p class="${cssClass}">The number ${number} ${article} ${sign}</p>`;
+}
+
+function checkNumbers() {
+  const firstInput = document.getElementById('first-number');
+  const secondInput = document.getElementById('second-number');
+  const resultDisplay = document.getElementById('result-display');
+
+  const firstNumber = parseFloat(firstInput.value);
+  const secondNumber = parseFloat(secondInput.value);
+
+  if (isNaN(firstNumber) || isNaN(secondNumber)) {
+    resultDisplay.innerHTML = '<p class="negative">Please enter valid numbers in both fields.</p>';
+    return;
+  }
+
+  const firstSign = determineSign(firstNumber);
+  const secondSign = determineSign(secondNumber);
+
+  const firstMessage = formatResultMessage(firstNumber, firstSign);
+  const secondMessage = formatResultMessage(secondNumber, secondSign);
+
+  resultDisplay.innerHTML = firstMessage + secondMessage;
+}
+
+
+document.getElementById('check-button').addEventListener('click', checkNumbers);
+
+// ============================================
+// CODE STYLE: UNCLE BOB
+// ============================================
