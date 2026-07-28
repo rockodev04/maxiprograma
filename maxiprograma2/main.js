@@ -103,9 +103,57 @@ function checkNumbers() {
   resultDisplay.innerHTML = firstMessage + secondMessage;
 }
 
-
 document.getElementById('check-button').addEventListener('click', checkNumbers);
 
 // ============================================
 // CODE STYLE: UNCLE BOB
 // ============================================
+
+function evenOrodd(){
+  const firstInput = Number(document.getElementById('even-number').value);
+  const secondInput = Number(document.getElementById('evensecond-number').value);
+  const resultDisplay = document.getElementById('display');
+
+
+  if (isNaN(firstInput) || isNaN(secondInput)) {
+    resultDisplay.innerHTML = '<p class="negative">Please enter valid numbers in both fields.</p>';
+    return;
+  }
+
+  if(firstInput %2 === 0 ){
+    return resultDisplay.innerHTML = `The number ${firstInput} is Even,`
+  }else if (secondInput %2 === 0){
+    return resultDisplay.innerHTML = `The number ${secondInput} is Even.`
+  }else{
+    return resultDisplay.innerHTML = `The number is odd.`
+  }
+}
+
+document.getElementById('checkevenOrodd-button').addEventListener('click', evenOrodd);
+
+function deduct(){
+  const firstInput = Number(document.getElementById('purchase-amount').value);
+  const resultDisplay = document.getElementById('discount');
+  const discountOne = .1
+  const discountTwo = .18
+  const purchase = 1000
+  const purchasehigh = 10000
+
+
+  if (isNaN(firstInput)) {
+    resultDisplay.innerHTML = '<p class="negative">Please enter valid numbers in both fields.</p>';
+    return;
+  }
+
+  if(firstInput > purchasehigh ){
+    let totaldiscountHight = firstInput - (firstInput * discountTwo) 
+    resultDisplay.innerHTML = `Total purchase $ : ${totaldiscountHight}`
+  }else if(firstInput >= purchase){
+    let totaldiscount = firstInput - (firstInput * discountOne) 
+    resultDisplay.innerHTML = `Total purchase $ : ${totaldiscount}`
+  }else{
+    resultDisplay.innerHTML = `Total purchase $ : ${firstInput}`
+  }
+}
+
+document.getElementById('checkdiscount-button').addEventListener('click', deduct);

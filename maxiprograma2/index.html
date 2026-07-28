@@ -43,6 +43,34 @@
     </form>
 
     <div id="result-display"></div>
+
+    <form id="number-checker-form">
+      <div class="form-group">
+        <label for="even-number">First Number</label>
+        <input type="number" id="even-number" name="even-number" placeholder="Enter the first number" step="any">
+      </div>
+    
+      <div class="form-group">
+        <label for="evensecond-number">Second Number</label>
+        <input type="number" id="evensecond-number" name="evensecond-number" placeholder="Enter the second number" step="any">
+      </div>
+    
+      <button type="button" id="checkevenOrodd-button" onclick="evenOrodd()">Check Even or Odd Numbers</button>
+    </form>
+    
+    <div id="display"></div>
+
+    <form id="number-checker-form">
+      <div class="form-group">
+        <label for="purchase-amount">Checker discount</label>
+        <input type="number" id="purchase-amount" name="purchase-amount" placeholder="Enter the purchase" step="any">
+      </div>
+    
+    
+      <button type="button" id="checkdiscount-button" onclick="deduct()">Check Discunt</button>
+    </form>
+    
+    <div id="discount"></div>
   </main>
   <script src="main.js"></script>
 </body>
