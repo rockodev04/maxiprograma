@@ -157,3 +157,158 @@ function deduct(){
 }
 
 document.getElementById('checkdiscount-button').addEventListener('click', deduct);
+
+function HighNumber(){
+  const firstInput = Number(document.getElementById('first').value);
+  const secondInput = Number(document.getElementById('second').value);
+  const thirdInput = Number(document.getElementById('third').value);
+  const fourthInput = Number(document.getElementById('fourth').value);
+  const resultDisplay = document.getElementById('highnumber');
+  const listnumbers = [firstInput,secondInput,thirdInput,fourthInput]
+  
+  if (isNaN(firstInput) || isNaN(secondInput) || isNaN(thirdInput) || isNaN(fourthInput)) {
+    resultDisplay.innerHTML = '<p class="negative">Please enter valid numbers in both fields.</p>';
+    return;
+  }
+
+  let HighnumberAmoungnumbers = Math.max(...listnumbers)
+  
+  resultDisplay.innerHTML = `
+    <p>All numbers: ${listnumbers.join(', ')}</p>
+    <p class="positive">The highest number is ${HighnumberAmoungnumbers}.</p>
+  `;
+
+}
+
+document.getElementById('highnumber-button').addEventListener('click', HighNumber);
+
+function LowNumber(){
+  const firstInput = Number(document.getElementById('lfirst').value);
+  const secondInput = Number(document.getElementById('lsecond').value);
+  const thirdInput = Number(document.getElementById('lthird').value);
+  const fourthInput = Number(document.getElementById('lfourth').value);
+  const resultDisplay = document.getElementById('lownumber');
+  const listnumbers = [firstInput,secondInput,thirdInput,fourthInput]
+
+  if (isNaN(firstInput) || isNaN(secondInput) || isNaN(thirdInput) || isNaN(fourthInput)) {
+    resultDisplay.innerHTML = '<p class="negative">Please enter valid numbers in both fields.</p>';
+    return;
+  }
+  
+  let LownumberAmoungnumbers = Math.min(...listnumbers) 
+
+  resultDisplay.innerHTML = `
+    <p>All numbers: ${listnumbers.join(', ')}</p>
+    <p class="positive">The lowest number is ${LownumberAmoungnumbers}.</p>
+  `;
+
+}
+
+document.getElementById('lownumber-button').addEventListener('click', LowNumber);
+
+function HighOrlowerNumber(){
+  const firstInput = Number(document.getElementById('hlfirst').value);
+  const secondInput = Number(document.getElementById('hlsecond').value);
+  const thirdInput = Number(document.getElementById('hlthird').value);
+  const fourthInput = Number(document.getElementById('hlfourth').value);
+  const fivethInput = Number(document.getElementById('hlfiveth').value);
+  const resultDisplay = document.getElementById('hldisplay');
+  const listnumbers = [firstInput,secondInput,thirdInput,fourthInput,fivethInput]
+
+  if (isNaN(firstInput) || isNaN(secondInput) || isNaN(thirdInput) || isNaN(fourthInput) || isNaN(fivethInput)) {
+    resultDisplay.innerHTML = '<p class="negative">Please enter valid numbers in both fields.</p>';
+    return;
+  }
+  
+  let LownumberAmoungnumbers = Math.min(...listnumbers) 
+  let HighnumberAmoungnumbers = Math.max(...listnumbers)
+
+  resultDisplay.innerHTML = `
+    <p>All numbers: ${listnumbers.join(', ')}</p>
+    <p class="positive">The highest number is ${HighnumberAmoungnumbers}.</p>
+    <p class="positive">The lowest number is ${LownumberAmoungnumbers}.</p>
+  `;
+
+}
+
+document.getElementById('hlnumber-button').addEventListener('click', HighOrlowerNumber);
+
+function Filternumber(){
+  const firstInput = Number(document.getElementById('ffirst').value);
+  const secondInput = Number(document.getElementById('fsecond').value);
+  const thirdInput = Number(document.getElementById('fthird').value);
+  const fourthInput = Number(document.getElementById('ffourth').value);
+  const resultDisplay = document.getElementById('filter');
+  const zero = 0
+  const listnumbers = [firstInput,secondInput,thirdInput,fourthInput]
+
+  if (
+    firstInput === zero || isNaN(firstInput) ||secondInput === zero || isNaN(secondInput) ||thirdInput === zero || isNaN(thirdInput) ||
+    fourthInput === zero || isNaN(fourthInput)
+  ) {
+    resultDisplay.innerHTML = '<p class="negative">Please enter valid numbers in all fields.</p>';
+    return;
+  }
+  
+  const highestThanoneHundred = listnumbers.filter(number => number > 100);
+
+  resultDisplay.innerHTML = `
+    <p>All numbers: ${listnumbers.join(', ')}</p>
+    <p class="positive">The highest numbers than one hundred are ${highestThanoneHundred}.</p>
+  `;
+
+}
+
+document.getElementById('filternumber-button').addEventListener('click', Filternumber);
+
+
+function lowestnumberthanonehundred(){
+  const firstInput = Number(document.getElementById('lohfirst').value);
+  const secondInput = Number(document.getElementById('lohsecond').value);
+  const thirdInput = Number(document.getElementById('lohthird').value);
+  const fourthInput = Number(document.getElementById('lohfourth').value);
+  const resultDisplay = document.getElementById('lowestnumber');
+  const zero = 0
+  const listnumbers = [firstInput,secondInput,thirdInput,fourthInput]
+
+  if (
+    firstInput === zero || isNaN(firstInput) ||secondInput === zero || isNaN(secondInput) ||thirdInput === zero || isNaN(thirdInput) ||
+    fourthInput === zero || isNaN(fourthInput)
+  ) {
+    resultDisplay.innerHTML = '<p class="negative">Please enter valid numbers in all fields.</p>';
+    return;
+  }
+  
+  const lowestThanoneHundred = listnumbers.filter(number => number < 100);
+
+  resultDisplay.innerHTML = `
+    <p>All numbers: ${listnumbers.join(', ')}</p>
+    <p class="positive">The highest numbers than one hundred are ${lowestThanoneHundred}.</p>
+  `;
+
+}
+
+document.getElementById('lowestnumberthanonehundred-button').addEventListener('click', lowestnumberthanonehundred);
+
+function conversionminutes(){
+  const firstInput = Number(document.getElementById('minutes').value);
+  const resultDisplay = document.getElementById('conversion');
+  const zero = 0
+  const minutes = 60
+  
+
+  if (firstInput === zero || isNaN(firstInput) ) {
+    resultDisplay.innerHTML = '<p class="negative">Please enter only numbers in a field.</p>';
+    return;
+  }
+
+  if(firstInput > minutes){
+    let minutesTohours = firstInput / minutes
+    return resultDisplay.innerHTML = `<p class="positive"><strong>${firstInput}</strong> minutes are equivalent to <strong>${minutesTohours}</strong> hour(s)..</p>`
+  }
+
+  resultDisplay.innerHTML = `<p>Your time is less than an hour: <strong>${firstInput}</strong> minutes.</p>`;
+
+}
+
+document.getElementById('conversion-button').addEventListener('click', conversionminutes);
